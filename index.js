@@ -9,8 +9,10 @@ const userModel = require("./models/userModel");
 const foodModel = require("./models/foodModel");
 const trackingModel = require("./models/trackingModel");
 const port = process.env.port;
+const cors = require("cors");
 
 app.use(express.json());
+app.use(cors());
 // creating the post request
 
 app.post("/signup", (req, res) => {
