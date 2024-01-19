@@ -58,7 +58,7 @@ app.post("/login",(req, res) => {
                     jwt.sign({ email: userCred.email}, process.env.secretKey, (err, token, userId, name) => {
                         if(!err)
                         {
-                            res.send({ message: "Login Successfull", token:token })
+                            res.send({ message: "Login Successfull", token:token, userName: user.name, userId: user._id })
                         }
                         else
                         {
