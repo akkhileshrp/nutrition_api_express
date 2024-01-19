@@ -55,10 +55,10 @@ app.post("/login",(req, res) => {
             bcrypt.compare(userCred.password, user.password, (err, result) => {
                 if(result === true)
                 {
-                    jwt.sign({ email: userCred.email}, process.env.secretKey, (err, token) => {
+                    jwt.sign({ email: userCred.email}, process.env.secretKey, (err, token, userId, name) => {
                         if(!err)
                         {
-                            res.send({ message: "Login Successfull", token:token })
+                            res.send({ message: "Login Successfull", token:token, userId: userId, name: name })
                         }
                         else
                         {
